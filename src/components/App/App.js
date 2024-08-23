@@ -1,21 +1,30 @@
 import './App.css';
-import {zodiacSignsEN, zodiacSignsRU} from '../../utils/constants';
+import {
+  EN,
+  ORIGINAL,
+  RU,
+  SWITCH_TO_EN,
+  SWITCH_TO_RU,
+  TRANSLATED,
+  zodiacSignsEN,
+  zodiacSignsRU
+} from '../../utils/constants';
 import Sign from '../Sign/Sign';
 import { useState } from 'react';
 
 function App() {
-  const [language, setLanguage] = useState('RU');
-  const listOfHoroscope= language === 'RU' ? zodiacSignsRU : zodiacSignsEN;
-  const userLanguage = language === 'RU' ? 'original' : 'translated';
+  const [language, setLanguage] = useState(RU);
+  const listOfHoroscope= language === RU ? zodiacSignsRU : zodiacSignsEN;
+  const userLanguage = language === RU ? ORIGINAL : TRANSLATED;
 
   const toggleLanguage = () => {
-    setLanguage(prevLanguage => (prevLanguage === 'RU' ? 'EN' : 'RU'));
+    setLanguage(prevLanguage => (prevLanguage === RU ? EN : RU));
   };
 
   return (
     <main className='main'>
       <button className='language-toggle' onClick={toggleLanguage}>
-        {language === 'RU' ? 'Switch to English' : 'Переключиться на русский'}
+        {language === RU ? SWITCH_TO_EN : SWITCH_TO_RU}
       </button>
       <div className='signs__container'>
         {listOfHoroscope.map((sign, index) => {

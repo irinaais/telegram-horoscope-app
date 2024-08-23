@@ -1,4 +1,10 @@
 export const BASE_URL = 'https://poker247tech.ru/';
+export const RU = 'RU';
+export const EN = 'EN';
+export const ORIGINAL = 'original';
+export const TRANSLATED = 'translated';
+export const SWITCH_TO_EN = 'Switch to English';
+export const SWITCH_TO_RU = 'Переключиться на русский';
 export const zodiacSignsRU = [
   {
     name: 'Овен',
