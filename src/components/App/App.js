@@ -16,16 +16,13 @@ function App() {
   const [language, setLanguage] = useState(RU);
 
   useEffect(() => {
-
     const telegramWebApp = window.Telegram?.WebApp;
     if (telegramWebApp) {
-      const language = telegramWebApp.initDataUnsafe.user.language_code;
-      if (!language) {
-        throw new Error("Unable to read language");
+      const language = telegramWebApp.initDataUnsafe?.user?.language_code;
+      if (language) {
+        const initialLanguage = language === RU ? RU : EN;
+        setLanguage(initialLanguage);
       }
-
-      const initialLanguage = language === RU ? RU : EN;
-      setLanguage(initialLanguage);
     }
   }, []);
 
