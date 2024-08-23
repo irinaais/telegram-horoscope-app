@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
       const userLangCode = window.Telegram.WebApp.initDataUnsafe.user.language_code;
-      const initialLanguage = userLangCode === 'ru' ? RU : EN;
+      const initialLanguage = userLangCode === RU ? RU : EN;
       setLanguage(initialLanguage);
     }
   }, []);
