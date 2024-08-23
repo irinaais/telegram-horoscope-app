@@ -9,7 +9,7 @@ export default function Sign(props) {
 
   const handleClick = async () => {
     try {
-      const horoscopeInfo = await getHoroscope(props.sign.title, 'original', 'today');
+      const horoscopeInfo = await getHoroscope(props.sign.title, props.language, 'today');
       const horoscopeText = horoscopeInfo.horoscope;
       setHoroscopeText(horoscopeText);
       setPopupIsOpen(true);
