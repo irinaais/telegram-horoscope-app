@@ -1,9 +1,14 @@
 import './App.css';
-import { zodiacSignsRU } from '../../utils/constants';
+import {zodiacSignsEN, zodiacSignsRU} from '../../utils/constants';
 import Sign from '../Sign/Sign';
-import { getHoroscope } from "../../app-component/network/Api";
+import { getHoroscope } from '../../app-component/network/Api';
 
 function App() {
+  const language= 'RU';
+  let listOfHoroscope= language === 'RU' ? zodiacSignsRU : zodiacSignsEN;
+
+  console.log(language);
+
   (async () => {
     const horoscope = await getHoroscope('aries', 'original', 'today');
     console.log(horoscope);
@@ -11,7 +16,7 @@ function App() {
 
   return (
     <main className='main'>
-      {zodiacSignsRU.map((sign, index) => <Sign key={index} sign={sign} />)}
+      {listOfHoroscope.map((sign, index) => <Sign key={index} sign={sign} />)}
     </main>
   );
 }
