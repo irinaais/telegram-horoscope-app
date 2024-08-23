@@ -1,5 +1,4 @@
 export const BASE_URL = 'https://poker247tech.ru/';
-export const signs = ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces'];
 export const zodiacSignsRU = [
   {
     name: 'Овен',
