@@ -1,6 +1,6 @@
 export const BASE_URL = 'https://poker247tech.ru/';
-export const RU = 'RU';
-export const EN = 'EN';
+export const RU = 'ru';
+export const EN = 'en';
 export const ORIGINAL = 'original';
 export const TRANSLATED = 'translated';
 export const SWITCH_TO_EN = 'Switch to English';
