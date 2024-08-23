@@ -10,10 +10,19 @@ import {
   zodiacSignsRU
 } from '../../utils/constants';
 import Sign from '../Sign/Sign';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [language, setLanguage] = useState(RU);
+
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      const userLangCode = window.Telegram.WebApp.initDataUnsafe.user.language_code;
+      const initialLanguage = userLangCode === RU ? RU : EN;
+      setLanguage(initialLanguage);
+    }
+  }, []);
+
   const listOfHoroscope= language === RU ? zodiacSignsRU : zodiacSignsEN;
   const userLanguage = language === RU ? ORIGINAL : TRANSLATED;
 
