@@ -38,9 +38,9 @@ export default function Sign(props) {
   return (
     <>
       <section className='sign' onClick={handleClick}>
-        <p className='sign__name'>{props.sign.name}</p>
-        <p>{props.sign.period}</p>
         <p>{props.sign.icon}</p>
+        <p className='sign__name'>{props.sign.name}</p>
+        <p className='sign__period'>{props.sign.period}</p>
       </section>
 
       <Popup
