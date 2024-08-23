@@ -1,0 +1,9 @@
+.sign {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.sign__name {
+  font-weight: bold;
+}
