@@ -1,11 +1,24 @@
 import './Sign.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getHoroscope } from '../../app-component/network/Api';
 import Popup from '../Popup/Popup';
 
 export default function Sign(props) {
   const [popupIsOpen, setPopupIsOpen] = useState(false);
   const [horoscopeText, setHoroscopeText] = useState('');
+
+  useEffect(() => {
+    if (popupIsOpen && window.Telegram && window.Telegram.WebApp) {
+      // Показываем кнопку "Назад" в Telegram Miniapp
+      window.Telegram.WebApp.BackButton.show();
+      window.Telegram.WebApp.BackButton.onClick(() => {
+        handleClose();
+      });
+    } else if (window.Telegram && window.Telegram.WebApp) {
+      // Скрываем кнопку "Назад" при закрытии Popup
+      window.Telegram.WebApp.BackButton.hide();
+    }
+  }, [popupIsOpen]);
 
   const handleClick = async () => {
     try {
